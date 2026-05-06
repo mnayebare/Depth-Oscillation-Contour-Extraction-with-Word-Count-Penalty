@@ -1,0 +1,35 @@
+Algorithm 1: Depth Oscillation Contour Extraction with Word Count Penalty:
+Step 1: Input: thread_data = {comments}, thresholds (20, 50), transition step 0.5
+Step 2: Output: contour_points = [(d̃, p)], where d̃ = penalized depth, p = position
+Step 3: Initialize contour_points ← ∅
+Step 4: Initialize position_counter p ← 0
+Step 5: for each top-level comment c in thread_data.comments do
+Step 6:  	TraverseVertically(c, base_depth = 0)
+Step 7: end for
+Procedure TraverseVertically(comment, base_depth)
+Step 8:     w ← CountWords(comments.body)
+Step 9:     λ ← WordCountPenalty(w)
+Step 10:    d̃ ← base_depth × λ
+Step 11:    Append(contour_points, (d̃, p))
+Step 12:    p ← p + 1
+Step 13:    if comment.replies ≠ ∅ then
+Step 14:        d_tr ← d̃ + (0.5 × λ)
+Step 15:        Append(contour_points, (d_tr, p))
+Step 16:        p ← p + 0.5
+Step 17:        for each reply r in comment.replies do
+Step 18:            TraverseVertically(r, base_depth + 1)
+Step 19:        end for
+Step 20:        Append(contour_points, (d_tr, p))
+Step 21:        p ← p + 0.5
+Step 22:    end if
+End procedure
+Function WordCountPenalty(w)
+Step 23:    If w ≥ 50 then return 1.0
+Step 24:    Else if 20 ≤ w < 50 then return 0.7 + (w − 20) × (0.3 / 30)
+Step 25:    Else return 0.4 + (w / 20) × 0.3
+End function
+
+Function CountWords(text)
+Step 26:    If text is empty then return 0
+Step 27:    Return number of whitespace-separated tokens in text
+End function
