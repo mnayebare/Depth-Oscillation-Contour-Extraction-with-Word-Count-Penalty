@@ -157,7 +157,7 @@ class ThreadContourExtractor:
         )
 
         ax.set_xlabel("Conversation Depth", fontweight="bold", fontsize=16)
-        ax.set_ylabel("Sequential Contour Position", fontweight="bold", fontsize=16)
+        ax.set_ylabel("Sequential Contour Position", fontweight="bold", fontsize=16) #label corrected from number of comments
         ax.set_title(title, fontweight="bold", fontsize=18)
 
         ax.grid(True, alpha=0.3, color="black", linewidth=1)
