@@ -317,32 +317,38 @@ if __name__ == "__main__":
     Minimal example using a toy conversation tree.
     Replace toy_conversation with a Reddit JSON conversation object.
     """
-
     toy_conversation = {
-        "comments": [
-            {
-                "body": "This is the first comment with enough words to avoid strong penalty.",
-                "depth": 0,
-                "replies": [
-                    {
-                        "body": "Short reply.",
-                        "depth": 1,
-                        "replies": [
-                            {
-                                "body": "This is a longer reply that contributes more to the conversation.",
-                                "depth": 2,
-                                "replies": []
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "body": "Another top-level comment with a moderately detailed response.",
-                "depth": 0,
-                "replies": []
-            }
-        ]
+    "post_title": "Should AI systems be used in public decision-making?",
+    "comments": [
+        {
+            "body": "I think they can be useful if there is transparency and public oversight.",
+            "depth": 1,
+            "replies": [
+                {
+                    "body": "Transparency is important, but most people still cannot audit these systems.",
+                    "depth": 2,
+                    "replies": [
+                        {
+                            "body": "That is why community review and independent audits should be required.",
+                            "depth": 3,
+                            "replies": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "body": "I disagree because these systems can reproduce bias.",
+            "depth": 1,
+            "replies": [
+                {
+                    "body": "Bias is a real concern, especially when training data are not representative.",
+                    "depth": 2,
+                    "replies": []
+                }
+            ]
+        }
+    ]
     }
 
     extractor = ThreadContourExtractor(toy_conversation)
