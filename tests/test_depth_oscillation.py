@@ -1,6 +1,6 @@
 import numpy as np
 
-from fractal_dimension_estimator import (
+from depth_oscillation import (
     count_words_in_comment,
     calculate_word_count_penalty,
     ThreadContourExtractor,
