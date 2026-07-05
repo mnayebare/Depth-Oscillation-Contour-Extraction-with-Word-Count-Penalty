@@ -33,9 +33,7 @@ import argparse
 from sklearn.metrics import cohen_kappa_score
 
 # ---------------------------------------------------------------------------
-# Keyword lists -- grounded directly in the manuscript's own stated criteria.
-# Edit/extend these if your criteria description is more specific than what's
-# currently written in the manuscript.
+# Keyword lists 
 # ---------------------------------------------------------------------------
 
 TECHNICAL_KEYWORDS = [
